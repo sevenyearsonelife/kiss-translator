@@ -29,6 +29,8 @@ import { getCurTabId } from "./libs/msg";
 import { injectInlineJs, injectInternalCss } from "./libs/injector";
 import { kissLog } from "./libs/log";
 
+console.log("hello, this from backgorund!")
+
 globalThis.ContextType = "BACKGROUND";
 
 const REMOVE_HEADERS = [
