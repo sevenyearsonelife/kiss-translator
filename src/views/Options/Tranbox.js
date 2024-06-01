@@ -72,7 +72,7 @@ export default function Tranbox() {
       <Stack spacing={3}>
         <FormControlLabel
           control={
-            <Switch
+            <Switch   //开关组件
               size="small"
               name="transOpen"
               checked={transOpen}
