@@ -78,9 +78,16 @@ export const URL_RAW_PREFIX =
   "https://raw.githubusercontent.com/fishjar/kiss-translator/master";
 
 export const URL_CACHE_TRAN = `https://${APP_LCNAME}/translate`;
+
+// api.cognitive.microsofttranslator.com
 export const URL_MICROSOFT_TRAN =
   "https://api-edge.cognitive.microsofttranslator.com/translate";
 export const URL_MICROSOFT_AUTH = "https://edge.microsoft.com/translate/auth";
+export const URL_MICROSOFT_LANGDETECT =
+  "https://api-edge.cognitive.microsofttranslator.com/detect?api-version=3.0";
+
+export const URL_GOOGLE_TRAN =
+  "https://translate.googleapis.com/translate_a/single";
 export const URL_BAIDU_LANGDETECT = "https://fanyi.baidu.com/langdetect";
 export const URL_BAIDU_SUGGEST = "https://fanyi.baidu.com/sug";
 export const URL_BAIDU_TTS = "https://fanyi.baidu.com/gettts";
@@ -94,6 +101,8 @@ export const URL_NIUTRANS_REG =
 
 export const DEFAULT_USER_AGENT =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36";
+
+export const OPT_DICT_BAIDU = "Baidu";
 
 export const OPT_TRANS_GOOGLE = "Google";
 export const OPT_TRANS_MICROSOFT = "Microsoft";
@@ -138,6 +147,13 @@ export const OPT_TRANS_ALL = [
   OPT_TRANS_CUSTOMIZE_3,
   OPT_TRANS_CUSTOMIZE_4,
   OPT_TRANS_CUSTOMIZE_5,
+];
+
+export const OPT_LANGDETECTOR_ALL = [
+  OPT_TRANS_GOOGLE,
+  OPT_TRANS_MICROSOFT,
+  OPT_TRANS_BAIDU,
+  OPT_TRANS_TENCENT,
 ];
 
 export const OPT_LANGS_TO = [
@@ -202,7 +218,7 @@ export const OPT_LANGS_SPECIAL = {
   ]),
   [OPT_TRANS_DEEPLX]: new Map([
     ...OPT_LANGS_FROM.map(([key]) => [key, key.toUpperCase()]),
-    ["auto", ""],
+    ["auto", "auto"],
     ["zh-CN", "ZH"],
     ["zh-TW", "ZH"],
   ]),
@@ -318,6 +334,12 @@ export const OPT_LANGS_SPECIAL = {
   ]),
 };
 export const OPT_LANGS_LIST = OPT_LANGS_TO.map(([lang]) => lang);
+export const OPT_LANGS_MICROSOFT = new Map(
+  Array.from(OPT_LANGS_SPECIAL[OPT_TRANS_MICROSOFT].entries()).map(([k, v]) => [
+    v,
+    k,
+  ])
+);
 export const OPT_LANGS_BAIDU = new Map(
   Array.from(OPT_LANGS_SPECIAL[OPT_TRANS_BAIDU].entries()).map(([k, v]) => [
     v,
@@ -417,6 +439,9 @@ export const GLOBLA_RULE = {
   skipLangs: [], // 不翻译的语言
   fixerSelector: "", // 修复函数选择器
   fixerFunc: "-", // 修复函数
+  transStartHook: "", // 钩子函数
+  transEndHook: "", // 钩子函数
+  transRemoveHook: "", // 钩子函数
 };
 
 // 输入框翻译
@@ -464,6 +489,7 @@ export const DEFAULT_TRANBOX_SETTING = {
   followSelection: false, // 翻译框是否跟随选中文本
   triggerMode: OPT_TRANBOX_TRIGGER_CLICK, // 触发翻译方式
   extStyles: "", // 附加样式
+  enDict: OPT_DICT_BAIDU, // 英文词典
 };
 
 // 订阅列表
@@ -497,6 +523,8 @@ const defaultOpenaiApi = {
   key: "",
   model: "gpt-4",
   prompt: `You will be provided with a sentence in ${INPUT_PLACE_FROM}, and your task is to translate it into ${INPUT_PLACE_TO}.`,
+  temperature: 0,
+  maxTokens: 256,
   fetchLimit: 1,
   fetchInterval: 500,
 };
@@ -510,7 +538,7 @@ const defaultOllamaApi = {
 };
 export const DEFAULT_TRANS_APIS = {
   [OPT_TRANS_GOOGLE]: {
-    url: "https://translate.googleapis.com/translate_a/single",
+    url: URL_GOOGLE_TRAN,
     key: "",
     fetchLimit: DEFAULT_FETCH_LIMIT, // 最大任务数量
     fetchInterval: DEFAULT_FETCH_INTERVAL, // 任务间隔时间
@@ -631,6 +659,7 @@ export const DEFAULT_SETTING = {
   csplist: DEFAULT_CSPLIST.join(",\n"), // 禁用CSP名单
   // disableLangs: [], // 不翻译的语言(移至rule，作废)
   transInterval: 500, // 翻译间隔时间
+  langDetector: OPT_TRANS_MICROSOFT, // 远程语言识别服务
 };
 
 export const DEFAULT_RULES = [GLOBLA_RULE];

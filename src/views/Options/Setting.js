@@ -17,6 +17,8 @@ import {
   UI_LANGS,
   TRANS_NEWLINE_LENGTH,
   CACHE_NAME,
+  OPT_TRANS_MICROSOFT,
+  OPT_LANGDETECTOR_ALL,
   OPT_SHORTCUT_TRANSLATE,
   OPT_SHORTCUT_STYLE,
   OPT_SHORTCUT_POPUP,
@@ -31,6 +33,8 @@ import ShortcutInput from "./ShortcutInput";
 import { useFab } from "../../hooks/Fab";
 import { sendBgMsg } from "../../libs/msg";
 import { kissLog } from "../../libs/log";
+import UploadButton from "./UploadButton";
+import DownloadButton from "./DownloadButton";
 
 function ShortcutItem({ action, label }) {
   const { shortcut, setShortcut } = useShortcut(action);
@@ -92,6 +96,14 @@ export default function Settings() {
     }
   };
 
+  const handleImport = async (data) => {
+    try {
+      await updateSetting(JSON.parse(data));
+    } catch (err) {
+      kissLog(err, "import setting");
+    }
+  };
+
   const {
     uiLang,
     minLength,
@@ -103,12 +115,28 @@ export default function Settings() {
     blacklist = DEFAULT_BLACKLIST.join(",\n"),
     csplist = DEFAULT_CSPLIST.join(",\n"),
     transInterval = 500,
+    langDetector = OPT_TRANS_MICROSOFT,
   } = setting;
   const { isHide = false } = fab || {};
 
   return (
     <Box>
       <Stack spacing={3}>
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={2}
+          useFlexGap
+          flexWrap="wrap"
+        >
+          <UploadButton text={i18n("import")} handleImport={handleImport} />
+          <DownloadButton
+            handleData={() => JSON.stringify(setting, null, 2)}
+            text={i18n("export")}
+            fileName={`kiss-setting_${Date.now()}.json`}
+          />
+        </Stack>
+
         <FormControl size="small">
           <InputLabel>{i18n("ui_lang")}</InputLabel>
           <Select
@@ -203,6 +231,22 @@ export default function Settings() {
             <MenuItem value={0}>{i18n("hide_context_menus")}</MenuItem>
             <MenuItem value={1}>{i18n("simple_context_menus")}</MenuItem>
             <MenuItem value={2}>{i18n("secondary_context_menus")}</MenuItem>
+          </Select>
+        </FormControl>
+
+        <FormControl size="small">
+          <InputLabel>{i18n("detect_lang_remote")}</InputLabel>
+          <Select
+            name="langDetector"
+            value={langDetector}
+            label={i18n("detect_lang_remote")}
+            onChange={handleChange}
+          >
+            {OPT_LANGDETECTOR_ALL.map((item) => (
+              <MenuItem value={item} key={item}>
+                {item}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
 
