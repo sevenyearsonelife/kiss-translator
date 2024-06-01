@@ -18,6 +18,7 @@ function Header(props) {
       position="sticky"
       sx={{
         zIndex: 1300,
+        bgcolor: 'green'
       }}
     >
       <Toolbar variant="dense">
