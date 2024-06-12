@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import DarkModeButton from "../Options/DarkModeButton";
 import Typography from "@mui/material/Typography";
 
-// 这就是翻译弹出窗口
+// 这就是翻译弹出窗口的header部分
 
 export default function Header({ setShowPopup }) {
   const handleHomepage = () => {
