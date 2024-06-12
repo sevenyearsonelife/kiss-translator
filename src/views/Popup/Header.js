@@ -5,6 +5,8 @@ import Stack from "@mui/material/Stack";
 import DarkModeButton from "../Options/DarkModeButton";
 import Typography from "@mui/material/Typography";
 
+// 这就是翻译弹出窗口
+
 export default function Header({ setShowPopup }) {
   const handleHomepage = () => {
     window.open(process.env.REACT_APP_HOMEPAGE, "_blank");
