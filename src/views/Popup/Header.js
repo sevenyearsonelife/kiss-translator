@@ -29,6 +29,7 @@ export default function Header({ setShowPopup }) {
             userSelect: "none",
             WebkitUserSelect: "none",
             fontWeight: "bold",
+            color: "green", // 设置颜色
           }}
         >
           {`${process.env.REACT_APP_NAME} v${process.env.REACT_APP_VERSION}`}
