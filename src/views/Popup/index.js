@@ -163,22 +163,21 @@ export default function Popup({ setShowPopup, translator: tran }) {
   rule.textStyle = "style_none";
 
   const { transOpen, translator, fromLang, toLang, textStyle } = rule;
-  //{ transOpen, translator, fromLang, toLang, textStyle } = rule;
-  console.log("---linus---:");
-  console.log("transOpen:", transOpen);
-  console.log("translator:", translator);
-  console.log("fromLang:", fromLang);
-  console.log("toLang:", toLang);
-  console.log("textStyle:", textStyle);
+  // console.log("---linus---:");
+  // console.log("transOpen:", transOpen);
+  // console.log("translator:", translator);
+  // console.log("fromLang:", fromLang);
+  // console.log("toLang:", toLang);
+  // console.log("textStyle:", textStyle);
   
-  console.log(typeof transOpen);
-  console.log(typeof translator);
-  console.log(typeof fromLang);
-  console.log(typeof toLang);
-  console.log(typeof textStyle);
+  // console.log(typeof transOpen);
+  // console.log(typeof translator);
+  // console.log(typeof fromLang);
+  // console.log(typeof toLang);
+  // console.log(typeof textStyle);
 
-  console.log(rule);
-  console.log(typeof rule)
+  // console.log(rule);
+  // console.log(typeof rule)
 
   return (
     <Box minWidth={300}>
