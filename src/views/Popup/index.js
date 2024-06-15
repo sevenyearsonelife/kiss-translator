@@ -152,6 +152,11 @@ export default function Popup({ setShowPopup, translator: tran }) {
     })();
   }, [tran]);
 
+
+  // 在某些页面确实会返回这个UI
+  // rule和tran是否有值会决定这个UI的显现与否
+  // rule和tran归根结底是输入参数
+  // 在某些页面打开popup，其输入参数会不一样
   if (!rule) {
     return (
       <Box minWidth={300}>
