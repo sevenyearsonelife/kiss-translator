@@ -188,7 +188,7 @@ const updateRule = () => {
     translator: "Google",
     fromLang: "auto",
     toLang: "zh-CN",
-    textStyle: "style_none"
+    textStyle: "blockquote"//"style_none"
   };
   saveRule(newRule);
 };
