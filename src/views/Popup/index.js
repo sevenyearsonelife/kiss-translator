@@ -175,6 +175,17 @@ export default function Popup({ setShowPopup, translator: tran }) {
   rule.fromLang = "auto";
   rule.toLang = "zh-CN";
   rule.textStyle = "style_none";
+  // 使得修改后的rule立马生效
+// const updateRule = () => {
+//   setRule({
+//     ...rule,
+//     translator: "Google",
+//     fromLang: "auto",
+//     toLang: "zh-CN",
+//     textStyle: "style_none"
+//   });
+// };
+// updateRule();
 
   const { transOpen, translator, fromLang, toLang, textStyle } = rule;
   // console.log("---linus---:");
