@@ -102,6 +102,7 @@ export default function Options() {
     );
   }
 
+  // 设置页面的整体布局
   return (
     <SettingProvider>
       <ThemeProvider>
