@@ -84,5 +84,6 @@ export default function Header({ setShowPopup }) {
 
 /*
 {setShowPopup ? ( ... ) : ( ... )}
-In summary, the curly braces {} are used to evaluate and embed the result of the JavaScript conditional expression within the JSX, allowing for dynamic component rendering based on the setShowPopup prop.总之
+In summary, the curly braces {} are used to evaluate and embed the result of the JavaScript conditional expression 
+within the JSX, allowing for dynamic component rendering based on the setShowPopup prop.总之
 */
