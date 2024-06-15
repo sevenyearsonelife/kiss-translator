@@ -29,6 +29,19 @@ import { saveRule } from "../../libs/rules";
 import { tryClearCaches } from "../../libs";
 import { kissLog } from "../../libs/log";
 
+/*
+const props = {
+  setShowPopup: () => console.log('Popup shown'),
+  translator: 'Google Translate'
+};
+
+function Popup({ setShowPopup, translator: tran }) {
+  console.log(setShowPopup); // Logs the function
+  console.log(tran); // Logs 'Google Translate'
+}
+
+Popup(props);
+*/
 export default function Popup({ setShowPopup, translator: tran }) {
   const i18n = useI18n();
   const [rule, setRule] = useState(tran?.rule);
