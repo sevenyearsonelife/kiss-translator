@@ -323,7 +323,12 @@ updateRule();
           <Button variant="text" onClick={handleSaveRule}>
             {i18n("save_rule")}
           </Button>
-          {!isExt && (
+          {/*!isExt && (
+            <Button variant="text" onClick={handleClearCache}>
+              {i18n("clear_cache")}
+            </Button>
+          )*/}
+          {true && (
             <Button variant="text" onClick={handleClearCache}>
               {i18n("clear_cache")}
             </Button>
