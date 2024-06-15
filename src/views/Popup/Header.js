@@ -12,9 +12,14 @@ import Typography from "@mui/material/Typography";
 标题栏包含一个主页按钮、一个标题，以及根据 setShowPopup 的状态显示的关闭按钮或深色模式切换按钮。
 
 Stack: A layout component for arranging elements in a row or column.
+
 HomeIcon: An icon representing a home action.
+
 Typography: A component for displaying text with various styles.
+
 DarkModeButton: A custom component for toggling dark mode (assumed to be defined elsewhere in the project).
+可以学习下DarkModeButton代码，看一下是如何自定义一个组件的
+
 */
 
 export default function Header({ setShowPopup }) {
