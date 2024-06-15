@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 Stack: A layout component for arranging elements in a row or column.
 HomeIcon: An icon representing a home action.
 Typography: A component for displaying text with various styles.
+DarkModeButton: A custom component for toggling dark mode (assumed to be defined elsewhere in the project).
 */
 
 export default function Header({ setShowPopup }) {
