@@ -27,6 +27,17 @@ When defining a new component using Material-UI, you do not necessarily have to 
 However, defining components as functions is a common and recommended practice in modern React development. 
 */
 
+/*
+js解构赋值语法：
+function Header(props) {
+  const setShowPopup = props.setShowPopup;
+  // Use setShowPopup directly
+}
+
+function Header({ setShowPopup }) {
+  // Use setShowPopup directly
+}
+*/
 export default function Header({ setShowPopup }) {
   const handleHomepage = () => {
     window.open(process.env.REACT_APP_HOMEPAGE, "_blank");
