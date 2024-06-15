@@ -176,10 +176,10 @@ export default function Popup({ setShowPopup, translator: tran }) {
   }
 
   // 修改rule的默认值
-  rule.translator = "Google";
-  rule.fromLang = "auto";
-  rule.toLang = "zh-CN";
-  rule.textStyle = "style_none";
+  // rule.translator = "Google";
+  // rule.fromLang = "auto";
+  // rule.toLang = "zh-CN";
+  // rule.textStyle = "style_none";
   
   // 使得修改后的rule立马生效
 const updateRule = () => {
