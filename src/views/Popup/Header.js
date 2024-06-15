@@ -6,7 +6,8 @@ import DarkModeButton from "../Options/DarkModeButton";
 import Typography from "@mui/material/Typography";
 
 // 这就是翻译弹出窗口的header部分
-
+// 该代码是一个名为 Header 的 React 组件，它使用 Material-UI (MUI) 组件构建了一个弹出窗口的标题栏。
+// 标题栏包含一个主页按钮、一个标题，以及根据 setShowPopup 的状态显示的关闭按钮或深色模式切换按钮。
 export default function Header({ setShowPopup }) {
   const handleHomepage = () => {
     window.open(process.env.REACT_APP_HOMEPAGE, "_blank");
