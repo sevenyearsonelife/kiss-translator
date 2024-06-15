@@ -20,6 +20,8 @@ Typography: A component for displaying text with various styles.
 DarkModeButton: A custom component for toggling dark mode (assumed to be defined elsewhere in the project).
 可以学习下DarkModeButton代码，看一下是如何自定义一个组件的
 
+JSX (JavaScript Syntax Extension): JSX is a syntax extension that allows you to write HTML-like code 
+within JavaScript files, making the code more readable and expressive.
 */
 
 export default function Header({ setShowPopup }) {
