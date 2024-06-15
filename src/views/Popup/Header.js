@@ -22,6 +22,9 @@ DarkModeButton: A custom component for toggling dark mode (assumed to be defined
 
 JSX (JavaScript Syntax Extension): JSX is a syntax extension that allows you to write HTML-like code 
 within JavaScript files, making the code more readable and expressive.
+
+When defining a new component using Material-UI, you do not necessarily have to define it as a function. 
+However, defining components as functions is a common and recommended practice in modern React development. 
 */
 
 export default function Header({ setShowPopup }) {
