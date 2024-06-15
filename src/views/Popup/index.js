@@ -43,6 +43,7 @@ function Popup({ setShowPopup, translator: tran }) {
 Popup(props);
 */
 export default function Popup({ setShowPopup, translator: tran }) {
+
   const i18n = useI18n();
   const [rule, setRule] = useState(tran?.rule);
   const [commands, setCommands] = useState({});
