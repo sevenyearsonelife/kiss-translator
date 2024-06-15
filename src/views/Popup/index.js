@@ -203,8 +203,8 @@ updateRule();
   // console.log(typeof toLang);
   // console.log(typeof textStyle);
 
-  // console.log(rule);
-  // console.log(typeof rule)
+  console.log(rule);
+  console.log(typeof rule)
 
   return (
     <Box minWidth={300}>
