@@ -211,6 +211,7 @@ export const saveRule = async (newRule) => {
   console.log("rules: ", rules);
   console.log("newRule: ", newRule);
   const rule = rules.find((item) => isMatch(newRule.pattern, item.pattern));
+  console.log("rule: ", rule);
   if (rule && rule.pattern !== GLOBAL_KEY) {
     Object.assign(rule, { ...newRule, pattern: rule.pattern });
   } else {
